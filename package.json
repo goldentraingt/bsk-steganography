@@ -1,0 +1,39 @@
+{
+  "name": "template-simple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/lib/index.js",
+  "scripts": {
+    "build": "rm -rf dist && babel src -d dist --copy-files",
+    "start": "nodemon --ignore src/public --ignore node_modules src/bin/index.js"
+  },
+  "keywords": [],
+  "author": "ClassAxion",
+  "license": "",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "chai": "^4.0.2",
+    "eslint": "^3.19.0",
+    "eslint-plugin-flowtype": "^2.34.0",
+    "flow-bin": "^0.54.1",
+    "flow-typed": "^2.1.5",
+    "mocha": "^3.4.2"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "body-parser": "^1.18.2",
+    "escape-string-regexp": "^1.0.5",
+    "express": "^4.15.4",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.12.0",
+    "queue": "^4.4.1",
+    "random-int": "^1.0.0",
+    "request-ip": "^2.0.2",
+    "striptags": "^3.1.0",
+    "url-regex": "^4.1.1"
+  }
+}
