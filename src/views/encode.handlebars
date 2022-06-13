@@ -1,0 +1,15 @@
+<h1><center>Aplikacja steganograficzna</center></h1>
+
+<p>Wybierz obraz który chcesz zakodować</p>
+
+<div>
+
+	{{!-- <input type="file" name="myImage" accept="image/*" /> --}}
+
+ 	<form action="{{encode_url}}" method="post" enctype="multipart/form-data">
+	<input class="form-control" type="file" name="decodeImage" id="decodeImage" required />
+	<br /><br />
+	<input class="btn btn-outline-secondary" type="submit" value="ZAKODUJ" />
+</form>
+</div>
+

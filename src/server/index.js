@@ -1,34 +1,40 @@
-const express = require('express')
-const expressHandlebars = require('express-handlebars')
-const { json, urlencoded } = require('body-parser')
-const requestIp = require('request-ip')
-const path = require('path')
+const express = require('express');
+const expressHandlebars = require('express-handlebars');
+const formidableMiddleware = require('express-formidable');
+require('dotenv').config();
 
-const mainRouter = require('./routers/')
+const { json, urlencoded } = require('body-parser');
+const requestIp = require('request-ip');
+const path = require('path');
 
-const app = express()
+const mainRouter = require('./routers/');
 
-app.use(json())
+const app = express();
 
-app.use(urlencoded({ extended: false }))
+app.use(json());
 
-app.use(requestIp.mw())
+app.use(urlencoded({ extended: false }));
 
-const viewsPath = path.join(__dirname, '../views')
+app.use(requestIp.mw());
 
-app.set('views', viewsPath)
+app.use(formidableMiddleware());
 
-app.engine('handlebars', expressHandlebars({
-    defaultLayout: 'main',
-    layoutsDir: path.join(viewsPath, '/layouts'),
-    partialsDir: path.join(viewsPath, '/partials'),
-    helpers: {
+const viewsPath = path.join(__dirname, '../views');
 
-    }
-}))
+app.set('views', viewsPath);
 
-app.set('view engine', 'handlebars')
+app.engine(
+    'handlebars',
+    expressHandlebars({
+        defaultLayout: 'main',
+        layoutsDir: path.join(viewsPath, '/layouts'),
+        partialsDir: path.join(viewsPath, '/partials'),
+        helpers: {},
+    })
+);
 
-app.use('/', mainRouter)
+app.set('view engine', 'handlebars');
 
-module.exports = app
+app.use('/', mainRouter);
+
+module.exports = app;

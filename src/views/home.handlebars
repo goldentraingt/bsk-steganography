@@ -1,1 +1,28 @@
-<center>Hello World</center>
+<h1><center>Aplikacja steganograficzna</center></h1>
+
+<p>Wybierz obraz który chcesz zakodować</p>
+
+<div>
+
+	{{!-- <input type="file" name="myImage" accept="image/*" /> --}}
+
+ 	<form action="{{encodeUrl}}" method="post" enctype="multipart/form-data">
+	<input class="form-control" type="file" name="decodeImage" id="decodeImage" required />
+	<br /><br />
+	<input class = "form-control" placeholder="Wprowadź tekst do zakodowania.." type="text" name="message" id="message" required>
+	<input class="btn btn-outline-secondary" type="submit" value="ZAKODUJ" />
+	<br><br>
+
+</form>
+</div>
+
+
+<div>
+	<p>Wybierz obraz który chcesz odkodować</p>
+	<form action="{{decodeUrl}}" method="post" enctype="multipart/form-data">
+	<input class="form-control" type="file" name="decodeImage" id="decodeImage" required />
+	<br /><br />
+	<input class="btn btn-outline-secondary" type="submit" value="ODKODUJ" />
+
+</div>
+</form>
